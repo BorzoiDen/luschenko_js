@@ -868,10 +868,14 @@ Lesson 5
 
 
 function t1() {
-
+  const out = document.querySelector('.out');
+  let total = '';
+  for(let i = 1; i <= 50; i++){
+    total += `${i} `;
+  }
+  out.innerText = total;
 }
-
-document.querySelector('.b-1').onclick = t1;
+document.querySelector('.b').onclick = t1;
 
 //  Task 2
 // Кнопка b-2 запускает функцию t2. Функция должна выводить в out-2 строку вида:
@@ -879,10 +883,14 @@ document.querySelector('.b-1').onclick = t1;
 // от 2 до 122 c шагом 2. Разделитель - пробел. Задача решается с помощью цикла.
 
 function t2() {
-
+  const out = document.querySelector('.out');
+  let total = '';
+  for(let i = 2; i <= 122; i += 2){
+    total += `${i} `;
+  }
+  out.innerText = total;
 }
-
-document.querySelector('.b-2').onclick = t2;
+document.querySelector('.b').onclick = t2;
 
 
 //  Task 3
@@ -891,10 +899,15 @@ document.querySelector('.b-2').onclick = t2;
 // от 25 до 7 c шагом 1. Разделитель - пробел. Задача решается с помощью цикла.
 
 function t3() {
-
+  const out = document.querySelector('.out');
+  let total = '';
+  for(let i = 25; i >= 7; i--){
+    total += `${i} `;
+  }
+  out.innerText = total;
 }
 
-document.querySelector('.b-3').onclick = t3;
+document.querySelector('.b').onclick = t3;
 
 //  Task 4
 // Кнопка b-4 запускает функцию t4. Функция должна выводить в out-4 строку вида:
@@ -903,10 +916,15 @@ document.querySelector('.b-3').onclick = t3;
 
 
 function t4() {
-
+  const out = document.querySelector('.out');
+  let total = '';
+  for(let i = 77; i >= 35; i -= 3){
+    total += `${i}_`;
+  }
+  out.innerText = total;
 }
 
-document.querySelector('.b-4').onclick = t4;
+document.querySelector('.b').onclick = t4;
 
 
 //  Task 5
@@ -915,10 +933,18 @@ document.querySelector('.b-4').onclick = t4;
 // от 1 до 17 c шагом 1. Разделитель - знак подчеркивания и звездочка (если число нечетное, и две звездочки если четное). Задача решается с помощью цикла.
 
 function t5() {
-
+  const out = document.querySelector('.out');
+  let total = '';
+  for(let i = 1; i <= 17; i++){
+    if(i % 2 == 1){
+      total += `${i}_*`;
+    } else {
+      total += `${i}_**`;
+    }
+  }
+  out.innerText = total;
 }
-
-document.querySelector('.b-5').onclick = t5;
+document.querySelector('.b').onclick = t5;
 
 
 //  Task 6
@@ -931,11 +957,16 @@ document.querySelector('.b-5').onclick = t5;
 //Задача решается с помощью цикла. В каждой итерации цикл выводит 6 звездочек без пробелов. Перенос строки - br. Количество строк (итераций, повторений) цикла вводит пользователь в i-6.
 //
 
+const input = document.querySelector('.input');
 function t6() {
-
+  const out = document.querySelector('.out');
+  let total = '';
+  for(let i = 0; i < input.value; i++){
+    total += `******<br>`;
+  }
+  out.innerHTML = total;
 }
-
-document.querySelector('.b-6').onclick = t6;
+document.querySelector('.b').onclick = t6;
 
 
 //  Task 7
@@ -945,11 +976,17 @@ document.querySelector('.b-6').onclick = t6;
 //     4 3 2 1 0
 // Задача решается с помощью цикла.
 
+const input = document.querySelector('.input');
 function t7() {
-
+  const out = document.querySelector('.out');
+  let total = '';
+  for(let i = +input.value; i >= 0; i--){
+    total += `${i} `;
+  }
+  out.innerHTML = total;
 }
+document.querySelector('.b').onclick = t7;
 
-document.querySelector('.b-7').onclick = t7;
 
 
 //  Task 8
@@ -960,11 +997,17 @@ document.querySelector('.b-7').onclick = t7;
 //     4 5 6 7 8
 // Задача решается с помощью цикла.
 
+const input = document.querySelector('.input');
+const input2 = document.querySelector('.input2');
+const out = document.querySelector('.out');
 function t8() {
-
+  let total = '';
+  for(let i = +input.value; i <= +input2.value; i++){
+    total += `${i} `;
+  }
+  out.innerHTML = total;
 }
-
-document.querySelector('.b-8').onclick = t8;
+document.querySelector('.b').onclick = t8;
 
 
 //  Task 9
@@ -977,11 +1020,26 @@ document.querySelector('.b-8').onclick = t8;
 // Задача решается с помощью цикла. Подсказка - вначале делаем проверку, а потом запускаем цикл.
 // цикл - один
 
+const input = document.querySelector('.input');
+const input2 = document.querySelector('.input2');
+const out = document.querySelector('.out');
 function t9() {
-
+  let total = '';
+  let min;
+  let max;
+  if (+input.value < +input2.value){
+    min = +input.value;
+    max = +input2.value;
+  } else {
+    min = +input2.value;
+    max = +input.value;
+  }
+  for(let i = min; i <= max; i++){
+    total += `${i} `;
+  }
+  out.innerHTML = total;
 }
-
-document.querySelector('.b-9').onclick = t9;
+document.querySelector('.b').onclick = t9;
 
 
 //  Task 10
@@ -989,10 +1047,14 @@ document.querySelector('.b-9').onclick = t9;
 // Разделитель - пробел. Задача решается через цикл, а четность - через шаг (равный 2).
 
 function t10() {
-
+  const out = document.querySelector('.out');
+  let total = '';
+  for(let i = 1950; i <= 2000; i += 2){
+    total += `${i} `;
+  }
+  out.innerText = total;
 }
-
-document.querySelector('.b-10').onclick = t10;
+document.querySelector('.b').onclick = t10;
 
 //  Task 11
 // Кнопка b-11 запускает функцию t11.  Функция должна:
@@ -1003,11 +1065,16 @@ document.querySelector('.b-10').onclick = t10;
 //     one 3 4 two
 
 
+const out = document.querySelector('.out');
 function t11() {
-
+  let total = '';
+  const divs =document.querySelectorAll('.div-11');
+  for(let i = 0; i < divs.length; i++){
+    total += `${divs[i].textContent} `;
+  }
+  out.innerHTML = total;
 }
-
-document.querySelector('.b-11').onclick = t11;
+document.querySelector('.b').onclick = t11;
 
 //  Task 12
 // Кнопка b-12 запускает функцию t12.  Функция должна:
@@ -1017,10 +1084,12 @@ document.querySelector('.b-11').onclick = t11;
 
 
 function t12() {
-
+  const divs =document.querySelectorAll('.div-12');
+  for(let i = 0; i < divs.length; i++){
+    divs[i].style.background = 'orange';
+  }
 }
-
-document.querySelector('.b-12').onclick = t12;
+document.querySelector('.b').onclick = t12;
 
 //  Task 13
 // Кнопка b-13 запускает функцию t13.  Функция должна:
@@ -1029,10 +1098,12 @@ document.querySelector('.b-12').onclick = t12;
 // применить к каждому elem[i].value, причем к value первого должно равняться 1, второго - 2, третьего - 3...
 
 function t13() {
-
+  const inputs= document.querySelectorAll('.i-13');
+  for(let i = 0; i < inputs.length; i++){
+    inputs[i].value = i + 1;
+  }
 }
-
-document.querySelector('.b-13').onclick = t13;
+document.querySelector('.b').onclick = t13;
 
 //  Task 14
 // Кнопка b-14 запускает функцию t14  Функция должна:
@@ -1040,12 +1111,16 @@ document.querySelector('.b-13').onclick = t13;
 // перебрать их с помощью цикла. Обращение к элементу выглядит так elem[i]
 // вывести в out-14 value выбранного. Проверить выбран ли элемент можно с помощью elem[i].checked.
 
-
+const out = document.querySelector('.out');
 function t14() {
-
+  const inputs= document.querySelectorAll('.i-14');
+  for(let i = 0; i < inputs.length; i++){
+    if (inputs[i].checked){
+      out.innerHTML = inputs[i].value; 
+    }
+  }
 }
-
-document.querySelector('.b-14').onclick = t14;
+document.querySelector('.b').onclick = t14;
 
 //  Task 15
 // Кнопка b-15 запускает функцию t15  Функция должна выводить следующую последовательность в out-15:
@@ -1053,11 +1128,13 @@ document.querySelector('.b-14').onclick = t14;
 // Для вывода использовать цикл. Разделитель пробел.
 // Подсказка (10 - i) + ' ' + i
 
+const out = document.querySelector('.out');
 function t15() {
-
-}
-
-document.querySelector('.b-15').onclick = t15;
+  for(let i = 0; i <= 10; i++){
+      out.innerHTML += (10 - i) + ' ' + i + ' '; 
+    }
+  }
+document.querySelector('.b').onclick = t15;
 
 //======================//
 
@@ -1065,5 +1142,158 @@ document.querySelector('.b-15').onclick = t15;
 //======================//
 Lesson 6
 
+//  Task 1
+// <p>С помощью вложенных циклов, нарисуйте строку:</p>
+// <pre>
+// ***_***_***_
+// </pre>
+// <p>где звездочки рисуются с помощью внутреннего цикла от 0 до 3, а _ с помощью внешнего.</p>
 
+function t1() {
+
+}
+
+document.querySelector('.b-1').onclick = t1;
+
+//  Task 2
+// <p>С помощью вложенных циклов, нарисуйте строку:</p>
+// <pre>
+// 1
+// *_*_*_
+// 2
+// *_*_*_
+// 3
+// *_*_*_
+// </pre>
+// <p>Решить задачу с помощью вложенных циклов. Внешний цикл выводит цифры и перенос строки br, , второй звездочки, знак подчеркивания и знак переноса.</p>
+function t2() {
+
+}
+
+document.querySelector('.b-2').onclick = t2;
+
+
+//  Task 3
+// <p>С помощью вложенных циклов, нарисуйте строку:</p>
+// <pre>
+// *_*_*_
+// *_*_*_
+// *_*_*_
+// *_*_*_
+// </pre>
+// <p>Решить задачу с помощью вложенных циклов. Внешний цикл выводит перенос строки br,  внутренний -  звездочки, знак подчеркивания.</p>
+function t3() {
+
+}
+
+document.querySelector('.b-3').onclick = t3;
+
+//  Task 4
+// <p>С помощью вложенных циклов, нарисуйте строку:</p>
+// <pre>
+// 1_1 2 3 4 5 2_1 2 3 4 5 3_1 2 3 4 5
+// </pre>
+function t4() {
+
+}
+
+document.querySelector('.b-4').onclick = t4;
+
+
+//  Task 5
+// <p>С помощью вложенных циклов, нарисуйте строку:</p>
+// <pre>
+// 101010
+// 101010
+// 101010
+// </pre>
+// <p>Внешний цикл выводит перенос строки br. Вложенный цикл от 0 до 6 выводит либо 0 либо 1.</p>
+function t5() {
+
+}
+
+document.querySelector('.b-5').onclick = t5;
+
+
+//  Task 6
+// <p>С помощью вложенных циклов, нарисуйте строку:</p>
+// <pre>
+// 10x01x
+// 10x01x
+// 10x01x
+// </pre>
+// <p>Внешний цикл выводит перенос строки br. Вложенный цикл от 0 до 6 выводит либо 0 либо 1 либо х.</p>
+function t6() {
+
+}
+
+document.querySelector('.b-6').onclick = t6;
+
+
+//  Task 7
+// <p>С помощью вложенных циклов, нарисуйте строку:</p>
+// <pre>
+// *
+// **
+// ***
+// ****
+// </pre>
+// <p>Внешний цикл выводит перенос строки br. Вложенный цикл запускается от нуля до i и рисует звездочку.</p>
+function t7() {
+
+}
+
+document.querySelector('.b-7').onclick = t7;
+
+
+//  Task 8
+// <p>С помощью вложенных циклов, нарисуйте строку:</p>
+// <pre>
+// *****
+// ****
+// ***
+// **
+// *
+// </pre>
+// <p>Внешний цикл выводит перенос строки br. Вложенный цикл рисует звездочки. </p>
+function t8() {
+
+}
+
+document.querySelector('.b-8').onclick = t8;
+
+
+//  Task 9
+// <p>С помощью вложенных циклов, нарисуйте строку:</p>
+// <pre>
+// 1
+// 1 2
+// 1 2 3
+// 1 2 3 4
+// 1 2 3 4 5
+// </pre>
+// <p>Внешний цикл выводит перенос строки br. Вложенный цикл рисует цифры</p>
+function t9() {
+
+}
+
+document.querySelector('.b-9').onclick = t9;
+
+
+//  Task 10
+// <p>С помощью вложенных циклов, нарисуйте строку:</p>
+// <pre>
+// 01 02 03 04 05 06 07 08 09 10
+// 11 12 13 14 15 16 17 18 19 20
+// 21 22 23 24 25 26 27 28 29 30
+// 31 32 33 34 35 36 37 38 39 40
+// 41 42 43 44 45 46 47 48 49 50
+// </pre>
+// <p>Внешний цикл выводит перенос строки br и запускается от 0 до 6.</p>
+// <p>Вложенный цикл рисует цифры от 0 до 9. Обратите внимание, что первый ряд - есть ведущий нуль. Здесь все просто - проверили, если число меньше 10 - то конкатенируем нуль.</p>
+function t10() {
+
+}
+
+document.querySelector('.b-10').onclick = t10;
 //======================//
