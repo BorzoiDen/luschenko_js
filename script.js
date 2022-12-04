@@ -8,12 +8,21 @@
 //const input =  document.querySelector('.input-t');
 //const input2 =  document.querySelector('.input-p');
 //const out = document.querySelector('.out');
-const input = document.querySelector('.input');
-const input2 = document.querySelector('.input2');
-const out = document.querySelector('.out');
-function t15() {
-  for(let i = 0; i <= 10; i++){
-      out.innerHTML += (10 - i) + ' ' + i + ' '; 
+//const input = document.querySelector('.input');
+//const input2 = document.querySelector('.input2');
+function t10() {
+  let total = '';
+  const out = document.querySelector('.out');
+  for(let i = 1; i <= 5; i++){
+      for(let k = (10 * i - 9); k <= (10 * i); k++){
+        if (k >= 1 && k <= 9){
+          total += `0${k} `;
+        } else {
+          total += `${k} `;
+        }
+      }
+      total += `<br>`;
     }
+    out.innerHTML = total;
   }
-document.querySelector('.b').onclick = t15;
+document.querySelector('.b').onclick = t10;

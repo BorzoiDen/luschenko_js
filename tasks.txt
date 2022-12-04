@@ -1150,10 +1150,17 @@ Lesson 6
 // <p>где звездочки рисуются с помощью внутреннего цикла от 0 до 3, а _ с помощью внешнего.</p>
 
 function t1() {
-
-}
-
-document.querySelector('.b-1').onclick = t1;
+  let total = '';
+  const out = document.querySelector('.out');
+  for(let i = 0; i < 3; i++){
+      for(let k = 0; k < 3; k++){
+        total += '*'; 
+      }
+      total += '_';
+    }
+    out.innerHTML = total;
+  }
+document.querySelector('.b').onclick = t1;
 
 //  Task 2
 // <p>С помощью вложенных циклов, нарисуйте строку:</p>
@@ -1167,10 +1174,18 @@ document.querySelector('.b-1').onclick = t1;
 // </pre>
 // <p>Решить задачу с помощью вложенных циклов. Внешний цикл выводит цифры и перенос строки br, , второй звездочки, знак подчеркивания и знак переноса.</p>
 function t2() {
-
-}
-
-document.querySelector('.b-2').onclick = t2;
+  let total = '';
+  const out = document.querySelector('.out');
+  for(let i = 1; i <= 3; i++){
+      total += `${i}<br>`;
+      for(let k = 0; k < 3; k++){
+        total += '*_'; 
+      }
+      total += `<br>`;
+    }
+    out.innerHTML = total;
+  }
+document.querySelector('.b').onclick = t2;
 
 
 //  Task 3
@@ -1183,10 +1198,17 @@ document.querySelector('.b-2').onclick = t2;
 // </pre>
 // <p>Решить задачу с помощью вложенных циклов. Внешний цикл выводит перенос строки br,  внутренний -  звездочки, знак подчеркивания.</p>
 function t3() {
-
-}
-
-document.querySelector('.b-3').onclick = t3;
+  let total = '';
+  const out = document.querySelector('.out');
+  for(let i = 1; i <= 4; i++){
+      total += `<br>`;
+      for(let k = 0; k < 3; k++){
+        total += '*_'; 
+      }
+    }
+    out.innerHTML = total;
+  }
+document.querySelector('.b').onclick = t3;
 
 //  Task 4
 // <p>С помощью вложенных циклов, нарисуйте строку:</p>
@@ -1194,10 +1216,17 @@ document.querySelector('.b-3').onclick = t3;
 // 1_1 2 3 4 5 2_1 2 3 4 5 3_1 2 3 4 5
 // </pre>
 function t4() {
-
-}
-
-document.querySelector('.b-4').onclick = t4;
+  let total = '';
+  const out = document.querySelector('.out');
+  for(let i = 1; i < 4; i++){
+      total += `${i}_`;
+      for(let k = 1; k <= 5; k++){
+        total += `${k} `; 
+      }
+    }
+    out.innerHTML = total;
+  }
+document.querySelector('.b').onclick = t4;
 
 
 //  Task 5
@@ -1209,10 +1238,17 @@ document.querySelector('.b-4').onclick = t4;
 // </pre>
 // <p>Внешний цикл выводит перенос строки br. Вложенный цикл от 0 до 6 выводит либо 0 либо 1.</p>
 function t5() {
-
-}
-
-document.querySelector('.b-5').onclick = t5;
+  let total = '';
+  const out = document.querySelector('.out');
+  for(let i = 0; i < 3; i++){
+      total += `<br>`;
+      for(let k = 1; k <= 6; k++){
+        total += `${k % 2}`; 
+      }
+    }
+    out.innerHTML = total;
+  }
+document.querySelector('.b').onclick = t5;
 
 
 //  Task 6
@@ -1224,10 +1260,21 @@ document.querySelector('.b-5').onclick = t5;
 // </pre>
 // <p>Внешний цикл выводит перенос строки br. Вложенный цикл от 0 до 6 выводит либо 0 либо 1 либо х.</p>
 function t6() {
-
-}
-
-document.querySelector('.b-6').onclick = t6;
+  let total = '';
+  const out = document.querySelector('.out');
+  for(let i = 0; i < 3; i++){
+      total += `<br>`;
+      for(let k = 1; k <= 6; k++){
+        if(k % 3 == 0){
+          total += `x`; 
+        } else {
+          total += `${k % 2}`;
+        }
+      }
+    }
+    out.innerHTML = total;
+  }
+document.querySelector('.b').onclick = t6;
 
 
 //  Task 7
@@ -1240,10 +1287,17 @@ document.querySelector('.b-6').onclick = t6;
 // </pre>
 // <p>Внешний цикл выводит перенос строки br. Вложенный цикл запускается от нуля до i и рисует звездочку.</p>
 function t7() {
-
-}
-
-document.querySelector('.b-7').onclick = t7;
+  let total = '';
+  const out = document.querySelector('.out');
+  for(let i = 1; i < 5; i++){
+      total += `<br>`;
+      for(let k = 1; k <= i; k++){
+        total += `*`;
+      }
+    }
+    out.innerHTML = total;
+  }
+document.querySelector('.b').onclick = t7;
 
 
 //  Task 8
@@ -1257,10 +1311,17 @@ document.querySelector('.b-7').onclick = t7;
 // </pre>
 // <p>Внешний цикл выводит перенос строки br. Вложенный цикл рисует звездочки. </p>
 function t8() {
-
-}
-
-document.querySelector('.b-8').onclick = t8;
+  let total = '';
+  const out = document.querySelector('.out');
+  for(let i = 0; i < 5; i++){
+      for(let k = i; k < 5; k++){
+        total += '*';
+      }
+      total += `<br>`;
+    }
+    out.innerHTML = total;
+  }
+document.querySelector('.b').onclick = t8;
 
 
 //  Task 9
@@ -1274,10 +1335,18 @@ document.querySelector('.b-8').onclick = t8;
 // </pre>
 // <p>Внешний цикл выводит перенос строки br. Вложенный цикл рисует цифры</p>
 function t9() {
+  let total = '';
+  const out = document.querySelector('.out');
+  for(let i = 1; i <= 5; i++){
+      for(let k = 1; k <= i; k++){
+        total += `${k} `;
+      }
+      total += `<br>`;
+    }
+    out.innerHTML = total;
+  }
+document.querySelector('.b').onclick = t9;
 
-}
-
-document.querySelector('.b-9').onclick = t9;
 
 
 //  Task 10
@@ -1292,8 +1361,37 @@ document.querySelector('.b-9').onclick = t9;
 // <p>Внешний цикл выводит перенос строки br и запускается от 0 до 6.</p>
 // <p>Вложенный цикл рисует цифры от 0 до 9. Обратите внимание, что первый ряд - есть ведущий нуль. Здесь все просто - проверили, если число меньше 10 - то конкатенируем нуль.</p>
 function t10() {
+  let total = '';
+  const out = document.querySelector('.out');
+  for(let i = 1; i <= 5; i++){
+      for(let k = (10 * i - 9); k <= (10 * i); k++){
+        if (k >= 1 && k <= 9){
+          total += `0${k} `;
+        } else {
+          total += `${k} `;
+        }
+      }
+      total += `<br>`;
+    }
+    out.innerHTML = total;
+  }
+document.querySelector('.b').onclick = t10;
+//======================//
 
-}
 
-document.querySelector('.b-10').onclick = t10;
+//======================//
+Lesson 7
+
+//======================//
+
+
+//======================//
+Lesson 8
+
+//======================//
+
+
+//======================//
+Lesson 9
+
 //======================//
