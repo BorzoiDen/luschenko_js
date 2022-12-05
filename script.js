@@ -10,19 +10,8 @@
 //const out = document.querySelector('.out');
 //const input = document.querySelector('.input');
 //const input2 = document.querySelector('.input2');
-function t10() {
-  let total = '';
+function f20() {
   const out = document.querySelector('.out');
-  for(let i = 1; i <= 5; i++){
-      for(let k = (10 * i - 9); k <= (10 * i); k++){
-        if (k >= 1 && k <= 9){
-          total += `0${k} `;
-        } else {
-          total += `${k} `;
-        }
-      }
-      total += `<br>`;
-    }
-    out.innerHTML = total;
-  }
-document.querySelector('.b').onclick = t10;
+  out.setAttribute('title', 'go');
+}
+document.querySelector('.b').onclick = f20;
