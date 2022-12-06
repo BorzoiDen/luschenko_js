@@ -13,5 +13,5 @@
 function f20() {
   const out = document.querySelector('.out');
   out.setAttribute('title', 'go');
-}
+} 
 document.querySelector('.b').onclick = f20;
