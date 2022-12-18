@@ -1,13 +1,21 @@
-let ar19 = [15, 424, 313, 78, 241, 4, 45, 67];
+//function showArr(domElem, arr) {
+//  let out = '';
+//  for (let i = 0; i < arr.length; i++) {
+//      out += arr[i] + ' ';
+//  }
+//  document.querySelector(domElem).innerHTML = out;
+//}
 
-function f19() {
-  let out = document.querySelector('.out'); 
-  let min = ar19[0];
-  for(let i = 0; i < ar19.length; i++){
-    if(ar19[i] < min){
-      min = ar19[i];
-    }
-  }
-  out.innerHTML = min;
-}
-document.querySelector('.b').onclick = f19;
+let a20 = [
+  [[0, 3], 1], 
+  [[0, 1, 8], [0, 9]], 
+  [0, [12], [18]],
+  12
+];
+
+console.group('Task 19 ================');
+console.log(a20[1][1][1] == 9);
+console.log(a20[2][2] == 18);
+console.log(a20[3]== 12);
+
+console.groupEnd();
