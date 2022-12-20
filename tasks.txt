@@ -2892,7 +2892,7 @@ function f2() {
         "two": "mahai",
         "five": "hi"
     };
-
+    document.querySelector('.out').innerHTML = a2.five;
     // return
 }
 
@@ -2915,7 +2915,7 @@ function f3() {
         "odd": "hi",
         "mix": "mix"
     };
-    // return
+    return a3.five;
 }
 
 document.querySelector('.b-3').onclick = () => {
@@ -2937,8 +2937,11 @@ let a4 = {
     "mix": "mix"
 };
 function f4() {
-
-    // return out;
+  let str = '';
+  for(let key in a4){
+    str += key + ' ' + a4[key] + ' <br>';
+  }
+  return str;
 }
 
 document.querySelector('.b-4').onclick = () => {
@@ -2951,10 +2954,11 @@ document.querySelector('.b-4').onclick = () => {
 
 function f5(arr, block) {
     let out = '';
-    // цикл
-    // формат вывода `${key} : ${arr[key]} <br>`;
-    //
-    // тут вывод в блок block
+    let str = '';
+    for(let key in arr){
+      str += `${key} : ${arr[key]} <br>`;
+    }
+    document.querySelector(block).innerHTML = str;
 }
 
 // давайте протестируем f5
@@ -2977,7 +2981,10 @@ let a6 = {
 };
 
 function f6() {
-
+  let key = document.querySelector('.input').value;
+  let val = document.querySelector('.input2').value;
+  a6[key] = val;
+  f5(a6, '.out');
 }
 
 document.querySelector('.b-6').onclick = f6;
@@ -2992,7 +2999,12 @@ let a7 = {
 
 
 function f7() {
-
+  let key = document.querySelector('.input').value;
+  if(Object.keys(a7).includes(key)){
+    document.querySelector('.out').innerHTML = 1;
+  } else {
+    document.querySelector('.out').innerHTML = 0;
+  }
 }
 
 document.querySelector('.b-7').onclick = f7;
@@ -3006,7 +3018,12 @@ let a8 = {
 };
 
 function f8() {
-
+  let key = document.querySelector('.input').value;
+  if(Object.keys(a8).includes(key)){
+    document.querySelector('.out').innerHTML = a8[key];
+  } else {
+    document.querySelector('.out').innerHTML = 0;
+  }
 }
 
 document.querySelector('.b-8').onclick = f8;
@@ -3023,7 +3040,14 @@ let a9 = {
 };
 
 function f9() {
-
+  let val = document.querySelector('.input').value;
+  let arr = [];
+  for(let key in a9){
+    if(a9[key] == val){
+      arr.push(key);
+    }
+  }
+  document.querySelector('.out').innerHTML = arr;
 }
 
 document.querySelector('.b-9').onclick = f9;
@@ -3032,9 +3056,13 @@ document.querySelector('.b-9').onclick = f9;
 // Давайте напишем полезную функцию f10, которая проверяет есть ли значение в ассоциативном массиве. Фукнция должна возвращать true если есть, и false если нет. Массив и значение передавать функции в качестве параметров.
 
 function f10(arr, val) {
-
-    //return true;
-    //return false;
+  let flag = false;
+  for(let key in arr){
+    if(arr[key] == val){
+      flag = true;
+    }
+    return flag;
+  }
 }
 
 document.querySelector('.b-10').onclick = () => {
@@ -3059,6 +3087,9 @@ let a11 = {
 };
 
 function f11() {
+  let k = document.querySelector('.input').value;
+  delete a11[k];
+  document.querySelector('.out').innerHTML = a11;
 }
 
 document.querySelector('.b-11').onclick = f11;
@@ -3075,9 +3106,14 @@ let a12 = {
 };
 
 function f12() {
-
+  let k = document.querySelector('.input').value;
+  for(let key in a12){
+    if(a12[key] == k){
+      delete a12[key];
+    }
+  }
+  document.querySelector('.out').innerHTML = a12;
 }
-
 document.querySelector('.b-12').onclick = f12;
 
 // Task 13
@@ -3091,7 +3127,13 @@ let a13 = {
 };
 
 function f13() {
-
+  let sum = 0;
+  for(let key in a13){
+    if(typeof(a13[key]) == 'number'){
+      sum += a13[key];
+    }
+  }
+  document.querySelector('.out').innerHTML = sum;
 }
 
 document.querySelector('.b-13').onclick = f13;
@@ -3108,7 +3150,11 @@ let a14 = {
 };
 
 function f14() {
-
+  let arr = [];
+  for(let key in a14){
+    arr.push(a14[key][0]);
+  }
+  document.querySelector('.out').innerHTML = arr.join(' ');
 }
 
 document.querySelector('.b-14').onclick = f14;
@@ -3126,7 +3172,13 @@ let a15 = {
 };
 
 function f15() {
-
+  let arr = [];
+  for(let key in a15){
+    for(let i = 0; i < a15[key].length; i++){
+      arr.push(a15[key][i]);
+    }
+  }
+  document.querySelector('.out').innerHTML = arr.join(' ');
 }
 
 document.querySelector('.b-15').onclick = f15;
@@ -3150,7 +3202,11 @@ let a16 = {
 }
 
 function f16() {
-
+  let arr = [];
+  for(let key in a16){
+    arr.push(a16[key].name);
+  }
+  document.querySelector('.out').innerHTML = arr.join(' ');
 }
 
 document.querySelector('.b-16').onclick = f16;
@@ -3175,7 +3231,13 @@ let a17 = {
 }
 
 function f17() {
-
+  let arr = [];
+  for(let key in a17){
+    if(a17[key].age > 30){
+      arr.push(a17[key].age);
+    }
+  }
+  document.querySelector('.out').innerHTML = arr.join(' ');
 }
 
 document.querySelector('.b-17').onclick = f17;
@@ -3190,9 +3252,18 @@ let a18 = {
 }
 
 function f18() {
-
+  let arr = [];
+  let branchColor = document.querySelector('.input').value;
+  for(let key in a18){
+    if(key == branchColor){
+      console.log(a18[key]);
+      arr = arr.concat(a18[key]);
+    }
+  }
+  document.querySelector('.out').innerHTML = arr.join(' ');
 }
 
+document.querySelector('.b-18').onclick = f18;
 // Task 19
 // При нажатии b-19 выполняете функцию f19. Функция должна в out-19 вывести цвет ветки станции которую пользователь ввел в i-19. Пользователь может вводить текст как с большой, так и с маленькой буквы. Если ветка не найдена - выводите пустую строку.
 // Пользователь ввел Lisova - вывод red, ввел Obolon - вывод blue.
@@ -3204,7 +3275,18 @@ let a19 = {
 }
 
 function f19() {
-
+  let station = document.querySelector('.input').value;
+  for(let key in a19){
+    for(let i = 0; i < a19[key].length; i++){
+      if(station.toLowerCase() == a19[key][i].toLowerCase()){
+        console.log(station, key);
+        document.querySelector('.out').innerHTML = key;
+        break;
+      } else {
+        document.querySelector('.out').innerHTML = '';
+      }
+    }
+  }
 }
 
 document.querySelector('.b-19').onclick = f19;
@@ -3219,12 +3301,158 @@ let a20 = {
 }
 
 function f20() {
-
+  let arr = [];
+  for(let key in a20){
+    for(let i = 0; i < a20[key].length; i++){
+      if(a20[key][i][1] == 2){
+        arr.push(a20[key][i][0]);
+      }
+    }
+    document.querySelector('.out').innerHTML = arr.join(' ');
+  }
 }
 
 document.querySelector('.b-20').onclick = f20
 
 //======================//
+Lesson 15
+
+// Task 1
+// Создайте set s1. Добавьте в него три элемента 'h', 'b', 'o', 'h'. Добавление делайте через add. Выведите в консоль получившийся набор (set) s1.
+
+// let s1 = new ...
+
+
+// Task 2
+// При нажатии b-2 выполняете функцию f2. Функция должна добавить в набор s2 элементы, которые пользователь вводит в i-2. Функция должна выводить в консоль s2 после каждого добавления элемента.
+
+
+// let s2 =
+
+const f2 = () => { }
+
+document.querySelector('.b-2').onclick = f2;
+
+
+// Task 3
+// При нажатии b-3 выполняете функцию f3. Функция должна удалить из набора s3 строку, которую пользователь вводит в i-3. Функция должна выводить в консоль s3 после каждого удаления элемента.
+
+let s3 = new Set(['one', 'two', 'four']); // обратите внимание, как просто можно добавить массив в набор!
+
+const f3 = () => { }
+
+document.querySelector('.b-3').onclick = f3;
+
+
+// Task 4
+// При нажатии b-4 выполняете функцию f4. Функция должна проверить наличие в наборе s4 строки введенной пользователем в i-4. Если строка есть - то вывести в out-4 true. Если нет - false.
+
+let s4 = new Set(['a', 'b', 'c', 'z']);
+
+const f4 = () => { }
+
+document.querySelector('.b-4').onclick = f4;
+
+// Task 5
+//  При нажатии b-5 выполняете функцию f5. Функция должна вывести в out-5 количество элементов в наборе s5.
+
+
+let s5 = new Set(['a', 'b', 'c', 'z', 'a2', 'b2', 'c2', 'z2']);
+
+const f5 = () => { }
+
+document.querySelector('.b-5').onclick = f5;
+
+// Task 6
+// При нажатии b-6 выполняете функцию f6. Функция должна вывести в out-6 число уникальных элементов в массиве a6. Решение должно использовать set.
+
+let a6 = [1, 2, 3, 4, 5, 3, 4, 5, 2, 4, 5, 3, 24, 5, 2, 4, 56, 4, 3, 2, 335, 2, 23, 41, 3, 4, 1, 1, 4, 2, 2, 4, 5, 24, 5, 3, 22, 56];
+
+const f6 = () => { }
+
+document.querySelector('.b-6').onclick = f6;
+
+// Task 7
+// При нажатии b-7 выполняете функцию f7. Функция должна получать из i-7 значение пароля и проверять, чтобы пользователь в строке пароля использовал не повторяющиеся символы. Если символы уникальны, а длина пароля больше ( строго) 6 то выводите в out-7 число 1. Если есть повторяющиеся символы, или длина меньше или равна 6 - то выводите 0. Для проверки уникальности символов используйте Set.
+
+const f7 = () => { }
+
+document.querySelector('.b-7').onclick = f7;
+
+// Task 8
+// При нажатии b-8 выполняете функцию f8. Функция должна перебрать набор s8 и добавить в массив ar8 только числа больше 5. Выведите массив в консоль.
+
+let s8 = new Set([1, 2, 3, 4, 5, 3, 4, 7, 9, 5, 7, 8, 9, 23, 45, 5, 2, 4, 5, 3, 24, 5, 2, 4, 56, 4, 3, 2, 335, 2, 23, 41, 3, 4, 1, 1, 4, 2, 2, 4, 5, 24, 5, 3, 22, 56]);
+let ar8 = [];
+
+const f8 = () => { }
+
+document.querySelector('.b-8').onclick = f8;
+
+// Task 9
+//  При нажатии b-9 выполняете функцию f9. Функция должна принимать набор our_set в качестве параметра, преобразовывать его в строку, причем после каждого символа строки должен быть пробел. Функция должна возвращать результирующую строку. 
+// В нашем примере результат должен быть 9 8 7 6 5 
+
+const f9 = our_set => { }
+
+document.querySelector('.b-9').onclick = () => {
+    let s9 = new Set([9, 8, 7, 6, 5]);
+    document.querySelector('.out-9').innerHTML = f9(s9);
+}
+
+// Task 10
+// При нажатии b-10 выполняете функцию f10. Функция должна принимать набор set в качестве параметра и выводить его в указанный элемент. Элемент указывается как второй параметр функции f10. Вывод значений - через пробел.
+
+const f10 = (out_set, elem) => { }
+
+document.querySelector('.b-10').onclick = () => {
+    let a10 = new Set(['4', '5', '6']);
+    f10(a10, '.out-10');
+};
+
+
+// Task 11
+//  При нажатии b-11 выполняете функцию f11. Функция должна преобразовать массив a11 в набор. И выводить в консоль. Изучите вывод получившегося набора. Разберитесь почему так происходит.
+// Да, эта задача решена! Просто разберитесь.
+
+const f11 = () => {
+    let s = new Set();
+    s.add([1]);
+    s.add([1]);
+    console.log(s);
+}
+
+document.querySelector('.b-11').onclick = f11;
+
+// Task 12
+//   При нажатии b-12 выполняете функцию f12. Функция должна преобразовать строку str12 в массив, так, что каждая буква - отдельный элемент массива. Потом создать набор на основе массива и возвратить его.
+
+let str12 = 'The name conjures up visions of plum pudding and Christmas punch quaint coaching inns and cozy firesides but also of orphaned and starving children';
+
+const f12 = () => {
+
+}
+
+document.querySelector('.b-12').onclick = () => {
+    console.log(f12());
+}
+
+// Task 13
+//  При нажатии b-13 выполняете функцию f13. Функция должна преобразовать строку str13 в массив, причем каждая буква - отдельный элемент массива. Потом создать набор на основе массива. Затем, перебирая набор поэлементам, найти сколько раз каждый символ встречается в исходном массиве. Результат - в виде объекта типа { символ : количество, символ : количество } вывести в консоль и возвратить.
+// пример результата для строки 'Hello ho'
+// { "H" : 1, 'e' : 1, 'l' : 2, "o" : 2, " ": 1}
+
+let str13 = 'The name conjures up visions of plum pudding and Christmas punch quaint coaching inns and cozy firesides but also of orphaned and starving children';
+
+
+const f13 = () => {
+
+    // return
+}
+
+document.querySelector('.b-13').onclick = () => {
+    console.log(f13());
+}
 
 //======================//
 
